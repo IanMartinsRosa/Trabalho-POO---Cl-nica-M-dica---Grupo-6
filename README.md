@@ -1,0 +1,70 @@
+# Clínica Médica — Sistema de Gerenciamento
+
+Trabalho Prático de Programação Orientada por Objetos — PUC Minas Betim  
+Curso: Análise e Desenvolvimento de Sistemas
+
+## Integrantes
+
+| Nome |
+|------|
+| Benedito Medeiros Salomão |
+| Carlos Magno Ferreira Silva |
+| Élder Vanderlei Coleta de Freitas |
+| Gustavo de Aguilar Coelho |
+| Ian Martins Rosa |
+
+## Descrição
+
+Sistema orientado a objetos para gerenciamento de clínica médica, desenvolvido em C# com .NET 10.  
+Permite cadastrar médicos e pacientes, agendar/cancelar consultas e consultar históricos, com persistência em JSON.
+
+## Funcionalidades
+
+- Cadastro de médicos (CRM, especialidade)
+- Cadastro de pacientes (convênio, data de nascimento)
+- Agendamento de consultas com validação de regras de negócio:
+  - Máximo de 10 consultas por médico/dia
+  - Um paciente por médico/dia
+  - Consultas não podem ser no passado
+- Cancelamento e conclusão de consultas
+- Consulta da agenda do dia, por médico ou histórico do paciente
+- Persistência automática em arquivos JSON
+
+## Estrutura do projeto
+
+```
+ClinicaMedica/
+├── Models/
+│   ├── Pessoa.cs          # Classe abstrata base (Abstração + Encapsulamento)
+│   ├── Medico.cs          # Herda de Pessoa (Herança + Polimorfismo)
+│   ├── Paciente.cs        # Herda de Pessoa (Herança + Polimorfismo)
+│   └── Consulta.cs        # Entidade de agendamento
+├── Interfaces/
+│   └── IRepositorio.cs    # Contrato genérico de repositório (Abstração)
+├── Repositories/
+│   ├── RepositorioJson.cs # Implementação base em JSON (Herança)
+│   ├── MedicoRepositorio.cs
+│   ├── PacienteRepositorio.cs
+│   └── ConsultaRepositorio.cs
+├── Services/
+│   └── AgendamentoService.cs  # Regras de negócio
+├── Exceptions/
+│   ├── ConsultaConflitanteException.cs
+│   └── LimiteConsultasDiariasException.cs
+├── UI/
+│   └── MenuConsole.cs     # Interface de console interativa
+└── Program.cs
+```
+
+## Armazenamento de dados
+
+Os dados são salvos automaticamente ao lado do `Program.cs`, versionados junto ao código:
+- `ClinicaMedica/medicos.json`
+- `ClinicaMedica/pacientes.json`
+- `ClinicaMedica/consultas.json`
+
+## Tecnologias
+
+- C# 14 / .NET 10
+- `System.Text.Json` para serialização
+- Arquitetura em camadas (Models → Repositories → Services → UI)
