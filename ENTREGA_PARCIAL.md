@@ -192,12 +192,12 @@ A arquitetura de repositórios (`IRepositorio<T>` + `RepositorioJson<T>`) já es
 
 | Integrante | Responsabilidade |
 |------------|-----------------|
-| _(integrante 1)_ | Models / Domínio (`Pessoa`, `Medico`, `Paciente`, `Consulta`) |
-| _(integrante 2)_ | Repositories / Persistência (`RepositorioJson<T>` e subclasses) |
-| _(integrante 3)_ | Services / Regras de negócio (`AgendamentoService`) |
-| _(integrante 4)_ | UI Console (`MenuConsole`) |
-| _(integrante 5)_ | Exceptions e validações |
-| _(integrante 6)_ | Documentação e testes manuais |
+| Ian Martins | Models / Domínio (`Pessoa`, `Medico`, `Paciente`, `Consulta`) |
+| Carlos Magno, Gustavo de Aguilar | Repositories / Persistência (`RepositorioJson<T>` e subclasses) |
+| Gustavo de Aguiar, Carlos Magno | Services / Regras de negócio (`AgendamentoService`) |
+| Benedito Medeiros, Élder Vanderlei | UI Console (`MenuConsole`) |
+| Élder Vanderlei, Ian Martins | Exceptions e validações |
+| Benedito Medeiros | Documentação e testes manuais |
 
 ---
 
