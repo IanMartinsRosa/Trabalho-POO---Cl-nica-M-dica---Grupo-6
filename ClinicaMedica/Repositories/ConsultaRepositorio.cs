@@ -38,6 +38,12 @@ public class ConsultaRepositorio : RepositorioJson<Consulta>
             c.DataHora.Date == data.Date &&
             c.Status != StatusConsulta.Cancelada);
 
+    public bool MedicoTemConsultaNoHorario(int medicoId, DateTime dataHora) =>
+    _dados.Any(c =>
+        c.MedicoId == medicoId &&
+        c.DataHora == dataHora &&
+        c.Status != StatusConsulta.Cancelada);
+
     public override void Atualizar(Consulta consulta)
     {
         var index = _dados.FindIndex(c => c.Id == consulta.Id);
