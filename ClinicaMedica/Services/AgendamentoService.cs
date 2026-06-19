@@ -29,6 +29,9 @@ public class AgendamentoService
 
         _ = _pacienteRepo.BuscarPorId(pacienteId)
             ?? throw new KeyNotFoundException($"Paciente ID {pacienteId} não encontrado.");
+        
+        if (dataHora < DateTime.Now)
+        throw new ArgumentException("Consulta não pode ser agendada no passado.");
 
         var consultasNoDia = _consultaRepo.ContarConsultasAtivasMedicoNoDia(medicoId, dataHora);
         if (consultasNoDia >= LimiteConsultasPorDia)
