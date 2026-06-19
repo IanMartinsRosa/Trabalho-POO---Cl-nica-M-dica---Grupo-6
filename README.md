@@ -30,6 +30,26 @@ Permite cadastrar médicos e pacientes, agendar/cancelar consultas e consultar h
 - Consulta da agenda do dia, por médico ou histórico do paciente
 - Persistência automática em arquivos JSON
 
+## Pré-requisitos
+
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+
+## Como compilar e executar
+
+```bash
+# Clonar o repositório
+git clone <url-do-repositorio>
+cd ClinicaMedica
+
+# Compilar
+dotnet build
+
+# Executar
+dotnet run --project ClinicaMedica/ClinicaMedica.csproj
+```
+
+Ou abrir `ClinicaMedica.sln` no Visual Studio / Rider e pressionar F5.
+
 ## Estrutura do projeto
 
 ```
