@@ -17,13 +17,8 @@ public class Consulta
 
     public DateTime DataHora
     {
-        get => _dataHora;
-        set
-        {
-            if (value < DateTime.Now.AddMinutes(-1))
-                throw new ArgumentException("Consulta não pode ser agendada no passado.");
-            _dataHora = value;
-        }
+    get => _dataHora;
+    set => _dataHora = value;
     }
 
     public StatusConsulta Status { get; set; } = StatusConsulta.Agendada;
